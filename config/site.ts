@@ -1,8 +1,8 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "Next.js + HeroUI",
-  description: "Make beautiful websites regardless of your design experience.",
+  name: "Datasynk",
+  description: "Datasynk - AI-powered platform for data-driven solutions.",
   navItems: [
     {
       label: "Home",
@@ -13,8 +13,8 @@ export const siteConfig = {
       href: "/docs",
     },
     {
-      label: "Pricing",
-      href: "/pricing",
+      label: "Datasets",
+      href: "/datasets",
     },
     {
       label: "Blog",
