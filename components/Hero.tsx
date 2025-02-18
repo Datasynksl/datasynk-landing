@@ -21,13 +21,17 @@ export default function Hero() {
           className="-top-60 right-60 md:right-0 md:-top-20"
           fill="blue"
         />
+        <Spotlight
+          className="top-0 right-0 -translate-x-full md:translate-x-16"
+          fill="violet"
+        />
   
         <GridBackgroundDemo>
           <div className="h-[25rem] w-full flex flex-col items-center justify-center">
-            <div className="inline-block max-w-xl text-center justify-center">
-              <h1 className={cn(title(), "text-8xl sm:text-7xl font-medium relative z-20 bg-clip-text text-white")}>
+            <div className="inline-block max-w-auto text-center justify-center">
+              <h1 className={cn(title({ size: "xl" }), " sm:text-7xl font-light relative z-20 bg-clip-text text-white")}>
                 <span>Focus on your &nbsp;</span>
-                <span className={title({ color: "violet" })}>business &nbsp;</span>
+                <span className={title({ color: "violet", size: "xl" })}>business &nbsp;</span>
                 <br />
                 <span>let's handle data</span>
               </h1>
