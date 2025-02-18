@@ -25,7 +25,7 @@ export default function Hero() {
         <GridBackgroundDemo>
           <div className="h-[25rem] w-full flex flex-col items-center justify-center">
             <div className="inline-block max-w-xl text-center justify-center">
-              <h1 className={cn(title(), "text-8xl sm:text-7xl font-bold relative z-20 bg-clip-text text-white")}>
+              <h1 className={cn(title(), "text-8xl sm:text-7xl font-medium relative z-20 bg-clip-text text-white")}>
                 <span>Focus on your &nbsp;</span>
                 <span className={title({ color: "violet" })}>business &nbsp;</span>
                 <br />

@@ -8,13 +8,13 @@ export default function Services() {
   return (
     <section className="p-4">
       <LampDemo>
-      <div className="text-center mb-10">
+      <div className="text-center mb-16">
         <h2 className="text-5xl font-bold mb-4 text-black-100">Key Features</h2>
-        <p className="text-default-500 hover:text-white max-w-xl mx-auto">
+        <p className="text-white max-w-xl mx-auto">
           Empowering your data journey with comprehensive solutions that drive insights and innovation.
         </p>
       </div>
-      <div className="max-w-full gap-6 grid grid-cols-12 grid-rows-2 px-8">
+      <div className="max-w-full gap-8 grid grid-cols-12 grid-rows-2 px-8">
         <Card className="bg-black-100 col-span-12 sm:col-span-4 h-[300px] group">
           <CardHeader className="absolute z-10 top-1 flex-col !items-start">
             <p className="text-tiny text-white/60 uppercase font-bold">AI</p>

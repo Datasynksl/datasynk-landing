@@ -23,7 +23,6 @@ import {
   DiscordIcon,
   HeartFilledIcon,
   SearchIcon,
-  Logo,
 } from "@/components/icons";
 
 export const Navbar = () => {
@@ -62,7 +61,7 @@ export const Navbar = () => {
             href="/"
           >
             {/* <Logo /> */}
-            <p className="font-bold text-inherit">DataSynk</p>
+            <p className="font-bold text-white text-2xl">DataSynk</p>
           </NextLink>
         </NavbarBrand>
         <ul className="hidden lg:flex gap-4 justify-start ml-2">

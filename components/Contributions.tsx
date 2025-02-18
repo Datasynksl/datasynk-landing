@@ -55,7 +55,7 @@ export default function ContributionsShowcase() {
   };
 
   return (
-    <div className="w-full min-h-screen bg-black-200 p-8 pt-16 relative">
+    <div className="w-full min-h-auto bg-gradient-to-b from-black-100 to-black-200 p-16 pt-16 relative rounded-lg">
       <div className="text-center">
         <h1 className="text-5xl font-semibold mb-4 text-white">Contributions</h1>
         <p className="text-default-500 hover:text-white max-w-xl mx-auto">

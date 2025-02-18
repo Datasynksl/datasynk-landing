@@ -36,7 +36,7 @@ export const LampContainer: React.FC<LampContainerProps> = ({ children, classNam
   return (
     <div
       className={cn(
-        "relative flex h-[50rem] min-h-auto flex-col items-center justify-center overflow-hidden bg-black-100 w-full rounded-md z-0",
+        "relative flex h-[75rem] min-h-auto flex-col items-center justify-center overflow-hidden bg-black-100 w-full rounded-md z-0",
         className,
       )}
     >

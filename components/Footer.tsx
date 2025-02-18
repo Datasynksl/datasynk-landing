@@ -5,14 +5,14 @@ import { Twitter, Linkedin, Github } from 'lucide-react'
 
 export default function Footer() {
   return (
-    <footer className="bg-black-200 text-white py-12 px-4 md:px-8 h-32 w-full">
+    <footer className="bg-black-200 text-white py-12 px-4 md:px-8 h-auto w-full mt-10">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
         {/* Company Info */}
         <div>
           <h3 className="text-xl font-bold mb-4">Company</h3>
           <ul className="space-y-2">
             <li><Link href="/about" className="hover:text-primary transition-colors">About Us</Link></li>
-            <li><Link href="/careers" className="hover:text-primary transition-colors">Careers</Link></li>
+            {/* <li><Link href="/careers" className="hover:text-primary transition-colors">Careers</Link></li> */}
             <li><Link href="/blog" className="hover:text-primary transition-colors">Blog</Link></li>
           </ul>
         </div>
@@ -22,7 +22,7 @@ export default function Footer() {
           <h3 className="text-xl font-bold mb-4">Resources</h3>
           <ul className="space-y-2">
             <li><Link href="/docs" className="hover:text-primary transition-colors">Documentation</Link></li>
-            <li><Link href="/api" className="hover:text-primary transition-colors">API Documentation</Link></li>
+            {/* <li><Link href="/api" className="hover:text-primary transition-colors">API Documentation</Link></li> */}
             <li><Link href="/support" className="hover:text-primary transition-colors">Support</Link></li>
           </ul>
         </div>
