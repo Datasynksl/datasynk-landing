@@ -1,0 +1,335 @@
+{
+    "districts": [
+      {
+        "name": "Bo",
+        "localities": [
+          {"value": "7", "name": "Bailma"},
+          {"value": "1", "name": "Bo"},
+          {"value": "2", "name": "Boama"},
+          {"value": "4", "name": "Bumpe"},
+          {"value": "5", "name": "Mongeri"},
+          {"value": "3", "name": "Serabu"},
+          {"value": "6", "name": "Sumbuya"},
+          {"value": "9", "name": "Tikonko"},
+          {"value": "8", "name": "Yele"}
+        ],
+        "chiefdoms": [
+          "Badjia", "Bagbo", "Bagbwe", "Baoma", "Bumpeh", "Jaiama Bongor", "Kakua", "Komboya", "Lugbu", "Niawa Lenga", "Selenga", "Tikonko", "Valunia", "Wonde"
+        ],
+        "coordinates": "7.9°N, 11.7°W"
+      },
+      {
+        "name": "Bombali",
+        "localities": [
+          {"value": "12", "name": "Kamabai"},
+          {"value": "11", "name": "Kamakwie"},
+          {"value": "13", "name": "Karina"},
+          {"value": "10", "name": "Makeni"}
+        ],
+        "chiefdoms": [
+          "Biriwa", "Bombali Sebora", "Gbanti Kamaranka", "Libeisaygahun", "Makari Gbanti", "Paki Massabong", "Safroko Limba", "Sanda Loko", "Sella Limba", "Tambakha"
+        ],
+        "coordinates": "9.1°N, 12.3°W"
+      },
+      {
+        "name": "Bonthe",
+        "localities": [
+          {"value": "14", "name": "Bonthe"},
+          {"value": "15", "name": "Mattru Jong"}
+        ],
+        "chiefdoms": [
+          "Bendu Cha", "Bum", "Dema", "Jong", "Kpanda Kemoh", "Kwamebai Krim", "Nongoba Bullom", "Sittia", "Sogbini", "Yawbeko"
+        ],
+        "coordinates": "7.5°N, 12.5°W"
+      },
+      {
+        "name": "Falaba",
+        "localities": [
+          {"value": "20", "name": "Bafolia"},
+          {"value": "16", "name": "Bendugu"},
+          {"value": "17", "name": "Falaba"},
+          {"value": "19", "name": "Krubola"},
+          {"value": "18", "name": "Sikunia"},
+          {"value": "21", "name": "Yiffin"}
+        ],
+        "chiefdoms": [
+          "Awaiting detailed information"
+        ],
+        "coordinates": "9.9°N, 11.5°W"
+      },
+      {
+        "name": "Kailahun",
+        "localities": [
+          {"value": "AllLoc", "name": "All Localities"},
+          {"value": "27", "name": "Binkolo"},
+          {"value": "26", "name": "Daru"},
+          {"value": "22", "name": "Kailahun"},
+          {"value": "23", "name": "Koindu"},
+          {"value": "24", "name": "Pendembu"},
+          {"value": "25", "name": "Segbwema"}
+        ],
+        "chiefdoms": [
+          "Jaluahun", "Jawie", "Kissi Kama", "Kissi Teng", "Kissi Tongi", "Luawa", "Malema", "Mandu", "Njaluahun", "Peje Bongre", "Peje West", "Upper Bambara", "Yawei"
+        ],
+        "coordinates": "8.3°N, 10.6°W"
+      },
+      {
+        "name": "Kambia",
+        "localities": [
+          {"value": "28", "name": "Kambia"}
+        ],
+        "chiefdoms": [
+          "Bramaia", "Gbinle Dixing", "Magbema", "Mambolo", "Masungbala", "Samu"
+        ],
+        "coordinates": "9.1°N, 12.9°W"
+      },
+      {
+        "name": "Karene",
+        "localities": [
+          {"value": "29", "name": "Kamakwie"}
+        ],
+        "chiefdoms": [
+          "Awaiting detailed information"
+        ],
+        "coordinates": "9.3°N, 12.5°W"
+      },
+      {
+        "name": "Kenema",
+        "localities": [
+          {"value": "AllLoc", "name": "All Localities"},
+          {"value": "30", "name": "Blama"},
+          {"value": "31", "name": "Boabuji"},
+          {"value": "32", "name": "Giehun"},
+          {"value": "33", "name": "Gorahun"},
+          {"value": "34", "name": "Hangha"},
+          {"value": "35", "name": "Kenema"},
+          {"value": "36", "name": "Panguma"},
+          {"value": "37", "name": "Pendemu"},
+          {"value": "38", "name": "Tokpombu"},
+          {"value": "39", "name": "Tongo"},
+          {"value": "40", "name": "Wuima"},
+          {"value": "41", "name": "Yomboma"}
+        ],
+        "chiefdoms": [
+          "Dama", "Dodo", "Gaura", "Gorama Mende", "Kandu Leppiama", "Koya", "Langrama", "Lower Bambara", "Malegohun", "Niawa", "Nongowa", "Nomo", "Simbaru", "Small Bo", "Tunkia"
+        ],
+        "coordinates": "7.9°N, 11.2°W"
+      },
+      {
+        "name": "Koinadugu",
+        "localities": [
+          {"value": "42", "name": "Kabala"}
+        ],
+        "chiefdoms": [
+          "Dembelia Sinkunia", "Folosaba Dembelia", "Kasunko", "Mongo", "Neya", "Sengbe", "Wara Wara Bafodia", "Wara Wara Yagala"
+        ],
+        "coordinates": "9.5°N, 11.5°W"
+      },
+      {
+        "name": "Kono",
+        "localities": [
+          {"value": "47", "name": "Jaiama Nimikor"},
+          {"value": "43", "name": "Koidu Town"},
+          {"value": "44", "name": "Motema"},
+          {"value": "48", "name": "Sewafe"},
+          {"value": "46", "name": "Tombodu"},
+          {"value": "45", "name": "Yengema"}
+        ],
+        "chiefdoms": [
+          "Fiama", "Gbane", "Gbane Kandor", "Gbense", "Gorama Kono", "Lei", "Mafindor", "Nimikoro", "Nimiyama", "Sandor", "Soa", "Tankoro"
+        ],
+        "coordinates": "8.6°N, 10.9°W"
+      },
+      {
+        "name": "Moyamba",
+        "localities": [
+          {"value": "49", "name": "Moyamba"},
+          {"value": "50", "name": "Njala"},
+          {"value": "51", "name": "Rotifunk"},
+          {"value": "52", "name": "Shenge"}
+        ],
+        "chiefdoms": [
+          "Bagruwa", "Bumpeh", "Dasse", "Fakunya", "Kaiyamba", "Kamajei", "Kori", "Kongbora", "Ribbi", "Timdale", "Upper Banta", "Yawbeko"
+        ],
+        "coordinates": "8.2°N, 12.3°W"
+      },
+      {
+        "name": "Port Loko",
+        "localities": [
+          {"value": "AllLoc", "name": "All Localities"},
+          {"value": "53", "name": "Gbinti"},
+          {"value": "55", "name": "Lungi"},
+          {"value": "54", "name": "Lunsar"},
+          {"value": "56", "name": "Masiaka"},
+          {"value": "58", "name": "Pepel"},
+          {"value": "59", "name": "Port Loko"},
+          {"value": "57", "name": "Rokupr"}
+        ],
+        "chiefdoms": [
+          "Bakeloko", "Bureh Kasseh Maconteh", "Dibia", "Kaffu Bullom", "Kamasondo", "Koya", "Lokomasama", "Maforki", "Marampa", "Masimera", "Sanda Magbolontor", "Tinkatupa Makonteh Safroko"
+        ],
+        "coordinates": "8.8°N, 12.8°W"
+      },
+      {
+        "name": "Pujehun",
+        "localities": [
+          {"value": "AllLoc", "name": "All Localities"},
+          {"value": "60", "name": "Bomi"},
+          {"value": "61", "name": "Gandorhun"},
+          {"value": "62", "name": "Gendema"},
+          {"value": "63", "name": "Masam"},
+          {"value": "64", "name": "Potoru"},
+          {"value": "65", "name": "Pujehun"},
+          {"value": "66", "name": "Zimmi"}
+        ],
+        "chiefdoms": [
+          "Barri", "Gallinas Perri", "Kpaka", "Malen", "Makpele", "Soro Gbema", "Sowa", "Yekomo Kpukumu Krim"
+        ],
+        "coordinates": "7.4°N, 11.7°W"
+      },
+      {
+        "name": "Tonkolili",
+        "localities": [
+          {"value": "AllLoc", "name": "All Localities"},
+          {"value": "67", "name": "Bumbuna"},
+          {"value": "68", "name": "Magbass"},
+          {"value": "69", "name": "Magburaka"},
+          {"value": "70", "name": "Masanga"},
+          {"value": "71", "name": "Masingbi"},
+          {"value": "72", "name": "Mathora"},
+          {"value": "73", "name": "Matotoka"},
+          {"value": "74", "name": "Mile 91"},
+          {"value": "75", "name": "Yele"},
+          {"value": "76", "name": "Yonibana"}
+        ],
+        "chiefdoms": [
+          "Dansogoia", "Gbonkolenken", "Kafe Simiria", "Kalansogoia", "Kholifa Mabang", "Kholifa Rowalla", "Malal Mara", "Sambaya Bendugu", "Tane", "Yoni"
+        ],
+        "coordinates": "8.7°N, 11.8°W"
+      },
+      {
+        "name": "Western Area Rural",
+        "localities": [
+          {"value": "AllLoc", "name": "All Localities"},
+          {"value": "77", "name": "Adonkia"},
+          {"value": "163", "name": "Banana Island"},
+          {"value": "78", "name": "Bathkump"},
+          {"value": "79", "name": "Bathurst"},
+          {"value": "80", "name": "Baw Baw"},
+          {"value": "81", "name": "Bureh Town"},
+          {"value": "82", "name": "Charlotte"},
+          {"value": "83", "name": "Cole Town"},
+          {"value": "84", "name": "Dublin"},
+          {"value": "85", "name": "Fogbo"},
+          {"value": "86", "name": "Gloucester"},
+          {"value": "87", "name": "Grafton"},
+          {"value": "88", "name": "Joe Town"},
+          {"value": "89", "name": "Jui"},
+          {"value": "90", "name": "Kebbie Town"},
+          {"value": "91", "name": "Kent"},
+          {"value": "92", "name": "Kerry Town"},
+          {"value": "93", "name": "Kola Town"},
+          {"value": "94", "name": "Kossoh Town"},
+          {"value": "95", "name": "Kwana"},
+          {"value": "96", "name": "Lakka"},
+          {"value": "97", "name": "Leicester"},
+          {"value": "98", "name": "Regent"},
+          {"value": "207", "name": "Rokel"},
+          {"value": "99", "name": "Rokel 6"},
+          {"value": "100", "name": "Rokupa"},
+          {"value": "101", "name": "Rucketts"},
+          {"value": "102", "name": "Russell"},
+          {"value": "103", "name": "Samuel Town"},
+          {"value": "208", "name": "Sema Town"},
+          {"value": "104", "name": "Stone Town"},
+          {"value": "105", "name": "Sussex 5"},
+          {"value": "106", "name": "Tissana"},
+          {"value": "107", "name": "Tokeh"},
+          {"value": "108", "name": "York"}
+        ],
+        "chiefdoms": [
+          "Not applicable; divided into wards"
+        ],
+        "coordinates": "8.3°N, 13.1°W"
+      },
+      {
+        "name": "Western Area Urban",
+        "localities": [
+          {"value": "AllLoc", "name": "All Localities"},
+          {"value": "109", "name": "Abacha"},
+          {"value": "110", "name": "Aberdeen"},
+          {"value": "111", "name": "Adilay Street"},
+          {"value": "112", "name": "Allen Town"},
+          {"value": "169", "name": "Ascension Road"},
+          {"value": "170", "name": "Bai Bureh"},
+          {"value": "113", "name": "Batama Town"},
+          {"value": "171", "name": "Blackhall Road"},
+          {"value": "114", "name": "Brookfields"},
+          {"value": "172", "name": "Byne Lane"},
+          {"value": "115", "name": "Calaba Town"},
+          {"value": "168", "name": "Campbell Street"},
+          {"value": "164", "name": "Campbell Town"},
+          {"value": "173", "name": "Cape Road"},
+          {"value": "174", "name": "Circular Road"},
+          {"value": "175", "name": "City Road"},
+          {"value": "116", "name": "Cline Town"},
+          {"value": "117", "name": "Congo Cross"},
+          {"value": "118", "name": "Congo Town"},
+          {"value": "166", "name": "East End"},
+          {"value": "176", "name": "Ferry Road"},
+          {"value": "119", "name": "Fisher Lane"},
+          {"value": "177", "name": "Fourah Bay Road"},
+          {"value": "178", "name": "Freetown Road"},
+          {"value": "120", "name": "Fullah Town"},
+          {"value": "121", "name": "Ginger Hall"},
+          {"value": "179", "name": "Goderich Street"},
+          {"value": "122", "name": "Godrich"},
+          {"value": "123", "name": "Hamilton"},
+          {"value": "124", "name": "Hasting"},
+          {"value": "180", "name": "HilCot Road"},
+          {"value": "125", "name": "Hill Cut"},
+          {"value": "126", "name": "Hill Station"},
+          {"value": "181", "name": "Hillside Bypass Road"},
+          {"value": "127", "name": "Howell"},
+          {"value": "128", "name": "Imatt"},
+          {"value": "129", "name": "Jama Tow"},
+          {"value": "182", "name": "Jomo Kenyatta Road"},
+          {"value": "183", "name": "Kallon Drive"},
+          {"value": "130", "name": "Katu Town"},
+          {"value": "131", "name": "Kent"},
+          {"value": "184", "name": "King Harman Road"},
+          {"value": "185", "name": "King Street"},
+          {"value": "132", "name": "Kingtom"},
+          {"value": "133", "name": "Kissy"},
+          {"value": "186", "name": "Kissy Bypass Road"},
+          {"value": "134", "name": "Kissy Dockyard"},
+          {"value": "187", "name": "Kissy Road"},
+          {"value": "188", "name": "Kissy Street"},
+          {"value": "135", "name": "Kortright"},
+          {"value": "136", "name": "Kroo Bay"},
+          {"value": "189", "name": "Kroo Bay Road"},
+          {"value": "90", "name": "Kebbie Town"},
+        {"value": "91", "name": "Kent"},
+        {"value": "92", "name": "Kerry Town"},
+        {"value": "93", "name": "Kola Town"},
+        {"value": "94", "name": "Kossoh Town"},
+        {"value": "95", "name": "Kwana"},
+        {"value": "96", "name": "Lakka"},
+        {"value": "97", "name": "Leicester"},
+        {"value": "98", "name": "Regent"},
+        {"value": "207", "name": "Rokel"},
+        {"value": "99", "name": "Rokel 6"},
+        {"value": "100", "name": "Rokupa"},
+        {"value": "101", "name": "Rucketts"},
+        {"value": "102", "name": "Russell"},
+        {"value": "103", "name": "Samuel Town"},
+        {"value": "208", "name": "Sema Town"},
+        {"value": "104", "name": "Stone Town"},
+        {"value": "105", "name": "Sussex 5"},
+        {"value": "106", "name": "Tissana"},
+        {"value": "107", "name": "Tokeh"},
+        {"value": "108", "name": "York"}
+        ]
+    }
+]
+}

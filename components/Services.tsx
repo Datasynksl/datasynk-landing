@@ -9,7 +9,7 @@ export default function Services() {
     <section className="p-4">
       <LampDemo>
       <div className="text-center mb-16">
-        <h2 className="text-5xl font-bold mb-4 text-black-100">Key Features</h2>
+        <h2 className="text-5xl font-bold mb-4 text-black-100">Core Value</h2>
         <p className="text-white max-w-xl mx-auto">
           Empowering your data journey with comprehensive solutions that drive insights and innovation.
         </p>

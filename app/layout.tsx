@@ -2,7 +2,7 @@ import "@/styles/globals.css";
 import { Metadata, Viewport } from "next";
 import { Link } from "@heroui/link";
 import clsx from "clsx";
-
+import { ClerkProvider } from "@clerk/nextjs";
 import { Providers } from "./providers";
 
 import { siteConfig } from "@/config/site";
@@ -42,15 +42,17 @@ export default function RootLayout({
           fontSans.variable,
         )}
       >
-        <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <div className="relative flex flex-col h-screen bg-black-100">
-            <Navbar />
-            <main className="container mx-auto max-w-7xl pt-8 px-6 flex-grow">
-              {children}
-            </main>
-            <Footer />
-          </div>
-        </Providers>
+        <ClerkProvider>
+          <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
+            <div className="relative flex flex-col h-screen bg-black-100">
+              <Navbar />
+              <main className="container mx-auto max-w-7xl pt-8 px-6 flex-grow">
+                {children}
+              </main>
+              <Footer />
+            </div>
+          </Providers>
+        </ClerkProvider>
       </body>
     </html>
   );

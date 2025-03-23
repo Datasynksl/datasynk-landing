@@ -1,0 +1,404 @@
+{
+    "emergency_numbers": [
+        {
+            "code": "117",
+            "purpose": "Medical Response"
+        },
+        {
+            "code": "999",
+            "purpose": "General Police Emergency"
+        },
+        {
+            "code": "112",
+            "purpose": "Fire Service"
+        },
+        {
+            "code": "119",
+            "purpose": "Crime Reporting"
+        },
+        {
+            "code": "555",
+            "purpose": "Disaster and Emergency Response"
+        },
+        {
+            "code": "166",
+            "purpose": "Traffic Police"
+        },
+        {
+            "code": "144",
+            "purpose": "Gender-Based Violence Helpline"
+        },
+        {
+            "code": "909",
+            "purpose": "Coast Guard Rescue"
+        },
+        {
+            "code": "171",
+            "purpose": "Child Protection Services"
+        },
+        {
+            "code": "118",
+            "purpose": "COVID-19 Helpline"
+        },
+        {
+            "code": "110",
+            "purpose": "Emergency Service 10"
+        },
+        {
+            "code": "111",
+            "purpose": "Emergency Service 11"
+        },
+        {
+            "code": "112",
+            "purpose": "Emergency Service 12"
+        },
+        {
+            "code": "113",
+            "purpose": "Emergency Service 13"
+        },
+        {
+            "code": "114",
+            "purpose": "Emergency Service 14"
+        },
+        {
+            "code": "115",
+            "purpose": "Emergency Service 15"
+        },
+        {
+            "code": "116",
+            "purpose": "Emergency Service 16"
+        },
+        {
+            "code": "117",
+            "purpose": "Emergency Service 17"
+        },
+        {
+            "code": "118",
+            "purpose": "Emergency Service 18"
+        },
+        {
+            "code": "119",
+            "purpose": "Emergency Service 19"
+        },
+        {
+            "code": "120",
+            "purpose": "Emergency Service 20"
+        },
+        {
+            "code": "121",
+            "purpose": "Emergency Service 21"
+        },
+        {
+            "code": "122",
+            "purpose": "Emergency Service 22"
+        },
+        {
+            "code": "123",
+            "purpose": "Emergency Service 23"
+        },
+        {
+            "code": "124",
+            "purpose": "Emergency Service 24"
+        },
+        {
+            "code": "125",
+            "purpose": "Emergency Service 25"
+        },
+        {
+            "code": "126",
+            "purpose": "Emergency Service 26"
+        },
+        {
+            "code": "127",
+            "purpose": "Emergency Service 27"
+        },
+        {
+            "code": "128",
+            "purpose": "Emergency Service 28"
+        },
+        {
+            "code": "129",
+            "purpose": "Emergency Service 29"
+        },
+        {
+            "code": "130",
+            "purpose": "Emergency Service 30"
+        },
+        {
+            "code": "131",
+            "purpose": "Emergency Service 31"
+        },
+        {
+            "code": "132",
+            "purpose": "Emergency Service 32"
+        },
+        {
+            "code": "133",
+            "purpose": "Emergency Service 33"
+        },
+        {
+            "code": "134",
+            "purpose": "Emergency Service 34"
+        },
+        {
+            "code": "135",
+            "purpose": "Emergency Service 35"
+        },
+        {
+            "code": "136",
+            "purpose": "Emergency Service 36"
+        },
+        {
+            "code": "137",
+            "purpose": "Emergency Service 37"
+        },
+        {
+            "code": "138",
+            "purpose": "Emergency Service 38"
+        },
+        {
+            "code": "139",
+            "purpose": "Emergency Service 39"
+        },
+        {
+            "code": "140",
+            "purpose": "Emergency Service 40"
+        },
+        {
+            "code": "141",
+            "purpose": "Emergency Service 41"
+        },
+        {
+            "code": "142",
+            "purpose": "Emergency Service 42"
+        },
+        {
+            "code": "143",
+            "purpose": "Emergency Service 43"
+        },
+        {
+            "code": "144",
+            "purpose": "Emergency Service 44"
+        },
+        {
+            "code": "145",
+            "purpose": "Emergency Service 45"
+        },
+        {
+            "code": "146",
+            "purpose": "Emergency Service 46"
+        },
+        {
+            "code": "147",
+            "purpose": "Emergency Service 47"
+        },
+        {
+            "code": "148",
+            "purpose": "Emergency Service 48"
+        },
+        {
+            "code": "149",
+            "purpose": "Emergency Service 49"
+        },
+        {
+            "code": "150",
+            "purpose": "Emergency Service 50"
+        },
+        {
+            "code": "151",
+            "purpose": "Emergency Service 51"
+        },
+        {
+            "code": "152",
+            "purpose": "Emergency Service 52"
+        },
+        {
+            "code": "153",
+            "purpose": "Emergency Service 53"
+        },
+        {
+            "code": "154",
+            "purpose": "Emergency Service 54"
+        },
+        {
+            "code": "155",
+            "purpose": "Emergency Service 55"
+        },
+        {
+            "code": "156",
+            "purpose": "Emergency Service 56"
+        },
+        {
+            "code": "157",
+            "purpose": "Emergency Service 57"
+        },
+        {
+            "code": "158",
+            "purpose": "Emergency Service 58"
+        },
+        {
+            "code": "159",
+            "purpose": "Emergency Service 59"
+        },
+        {
+            "code": "160",
+            "purpose": "Emergency Service 60"
+        },
+        {
+            "code": "161",
+            "purpose": "Emergency Service 61"
+        },
+        {
+            "code": "162",
+            "purpose": "Emergency Service 62"
+        },
+        {
+            "code": "163",
+            "purpose": "Emergency Service 63"
+        },
+        {
+            "code": "164",
+            "purpose": "Emergency Service 64"
+        },
+        {
+            "code": "165",
+            "purpose": "Emergency Service 65"
+        },
+        {
+            "code": "166",
+            "purpose": "Emergency Service 66"
+        },
+        {
+            "code": "167",
+            "purpose": "Emergency Service 67"
+        },
+        {
+            "code": "168",
+            "purpose": "Emergency Service 68"
+        },
+        {
+            "code": "169",
+            "purpose": "Emergency Service 69"
+        },
+        {
+            "code": "170",
+            "purpose": "Emergency Service 70"
+        },
+        {
+            "code": "171",
+            "purpose": "Emergency Service 71"
+        },
+        {
+            "code": "172",
+            "purpose": "Emergency Service 72"
+        },
+        {
+            "code": "173",
+            "purpose": "Emergency Service 73"
+        },
+        {
+            "code": "174",
+            "purpose": "Emergency Service 74"
+        },
+        {
+            "code": "175",
+            "purpose": "Emergency Service 75"
+        },
+        {
+            "code": "176",
+            "purpose": "Emergency Service 76"
+        },
+        {
+            "code": "177",
+            "purpose": "Emergency Service 77"
+        },
+        {
+            "code": "178",
+            "purpose": "Emergency Service 78"
+        },
+        {
+            "code": "179",
+            "purpose": "Emergency Service 79"
+        },
+        {
+            "code": "180",
+            "purpose": "Emergency Service 80"
+        },
+        {
+            "code": "181",
+            "purpose": "Emergency Service 81"
+        },
+        {
+            "code": "182",
+            "purpose": "Emergency Service 82"
+        },
+        {
+            "code": "183",
+            "purpose": "Emergency Service 83"
+        },
+        {
+            "code": "184",
+            "purpose": "Emergency Service 84"
+        },
+        {
+            "code": "185",
+            "purpose": "Emergency Service 85"
+        },
+        {
+            "code": "186",
+            "purpose": "Emergency Service 86"
+        },
+        {
+            "code": "187",
+            "purpose": "Emergency Service 87"
+        },
+        {
+            "code": "188",
+            "purpose": "Emergency Service 88"
+        },
+        {
+            "code": "189",
+            "purpose": "Emergency Service 89"
+        },
+        {
+            "code": "190",
+            "purpose": "Emergency Service 90"
+        },
+        {
+            "code": "191",
+            "purpose": "Emergency Service 91"
+        },
+        {
+            "code": "192",
+            "purpose": "Emergency Service 92"
+        },
+        {
+            "code": "193",
+            "purpose": "Emergency Service 93"
+        },
+        {
+            "code": "194",
+            "purpose": "Emergency Service 94"
+        },
+        {
+            "code": "195",
+            "purpose": "Emergency Service 95"
+        },
+        {
+            "code": "196",
+            "purpose": "Emergency Service 96"
+        },
+        {
+            "code": "197",
+            "purpose": "Emergency Service 97"
+        },
+        {
+            "code": "198",
+            "purpose": "Emergency Service 98"
+        },
+        {
+            "code": "199",
+            "purpose": "Emergency Service 99"
+        }
+    ]
+}
