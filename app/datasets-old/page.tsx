@@ -53,14 +53,16 @@ export default function Dataset(){
                 }}
             />
             </div>
-            <div className="flex-1 overflow-auto px-4 md:px-6">
-            <DatasetGrid datasets={paginatedDatasets} />
-            </div>
-            <div className="p-4 md:p-6 border-t">
-            <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={setCurrentPage} />
+            
+            <div className="">
+                <div className="flex-1 overflow-auto px-4 md:px-6">
+                  <DatasetGrid datasets={paginatedDatasets} />
+                </div>
+                <div className="p-4 md:p-6 border-t">
+                  <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={setCurrentPage} />
+                </div>
             </div>
         </main>
     </div>
     )
-
 }

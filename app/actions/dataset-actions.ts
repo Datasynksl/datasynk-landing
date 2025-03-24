@@ -34,12 +34,13 @@ export async function createDataset(formData: FormData) {
 
     // Upload file to Supabase Storage
     const { data: fileData, error: uploadError } = await supabase.storage.from("datasets").upload(fileName, file, {
-      // cacheControl: "3600",
-      // upsert: false,
+      cacheControl: "3600",
+      upsert: false,
     })
 
     if (uploadError) {
       console.error("Error uploading file:", uploadError)
+      console.log("Error uploading file:", uploadError)
       return { success: false, error: "Failed to upload file" }
     }
 
@@ -74,6 +75,7 @@ export async function createDataset(formData: FormData) {
     return { success: true, datasetId: dataset[0].id }
   } catch (error) {
     console.error("Unexpected error:", error)
+        console.log("Unexpected error:", error)
     return { success: false, error: "An unexpected error occurred" }
   }
 }
