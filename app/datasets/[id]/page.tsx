@@ -1,9 +1,7 @@
 import { createClient } from "@/utils/supabase/server"
 import { notFound } from "next/navigation"
 import Link from "next/link"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
+import { Tabs, Tab, Card, CardBody, Button, Badge} from "@heroui/react"
 import { DatasetParameters } from "@/components/dataset-parameters"
 import { DatasetSample } from "@/components/dataset-sample"
 import { DatasetApiDocs } from "@/components/dataset-api-docs"
@@ -52,11 +50,9 @@ export default async function DatasetPage({ params }: { params: { id: string } }
 
         if (dataset.file_type === "json") {
           const jsonData = JSON.parse(text)
-          // Get first 5 items if it's an array
           sampleData = Array.isArray(jsonData) ? jsonData.slice(0, 5) : jsonData
         } else if (dataset.file_type === "csv") {
-          // Simple CSV parsing
-          const lines = text.split("\n").slice(0, 6) // Header + 5 rows
+          const lines = text.split("\n").slice(0, 6)
           const headers = lines[0].split(",")
 
           sampleData = lines.slice(1).map((line) => {
@@ -88,7 +84,7 @@ export default async function DatasetPage({ params }: { params: { id: string } }
           </div>
 
           <div className="flex gap-2">
-            <Button asChild variant="outline">
+            <Button asChild variant="bordered">
               <Link href={`/api/datasets/${dataset.id}/data`} target="_blank">
                 Download Data
               </Link>
@@ -99,66 +95,74 @@ export default async function DatasetPage({ params }: { params: { id: string } }
         <p className="text-lg text-gray-600 mb-4">{dataset.description}</p>
 
         <div className="flex flex-wrap gap-2 mb-6">
-          <Badge variant="outline">{dataset.file_type.toUpperCase()}</Badge>
+          <Badge variant="flat">{dataset.file_type.toUpperCase()}</Badge>
           {dataset.tags &&
             dataset.tags.map((tag: string) => (
-              <Badge key={tag} variant="secondary">
+              <Badge key={tag} variant="solid">
                 {tag}
               </Badge>
             ))}
         </div>
       </div>
 
-      <Tabs defaultValue="overview" className="w-full">
-        <TabsList className="mb-6">
-          <TabsTrigger value="overview">Overview</TabsTrigger>
-          <TabsTrigger value="sample">Sample Data</TabsTrigger>
-          <TabsTrigger value="api">API Documentation</TabsTrigger>
-        </TabsList>
+      <Tabs 
+        defaultValue="overview" 
+        aria-label="Dataset Views"
+        className="w-full"
+      >
+        <Tab key="overview" title="Overview">
+          <Card>
+            <CardBody className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                  <h2 className="text-2xl font-semibold mb-4">Dataset Information</h2>
+                  <dl className="grid grid-cols-[120px_1fr] gap-2">
+                    <dt className="font-medium text-gray-500">Format:</dt>
+                    <dd>{dataset.file_type.toUpperCase()}</dd>
+                    <dt className="font-medium text-gray-500">Size:</dt>
+                    <dd>{dataset.size ? `${(dataset.size / 1024 / 1024).toFixed(2)} MB` : "Unknown"}</dd>
+                    <dt className="font-medium text-gray-500">Added:</dt>
+                    <dd>{new Date(dataset.created_at).toLocaleDateString()}</dd>
+                    <dt className="font-medium text-gray-500">Updated:</dt>
+                    <dd>{dataset.updated_at ? new Date(dataset.updated_at).toLocaleDateString() : "N/A"}</dd>
+                    <dt className="font-medium text-gray-500">API Calls:</dt>
+                    <dd>{dataset.access_count || 0}</dd>
+                  </dl>
+                </div>
+                <div>
+                  <h2 className="text-2xl font-semibold mb-4">Parameters</h2>
+                  <DatasetParameters parameters={dataset.parameters} />
+                </div>
+              </div>
+            </CardBody>
+          </Card>
+        </Tab>
 
-        <TabsContent value="overview" className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h2 className="text-2xl font-semibold mb-4">Dataset Information</h2>
-              <dl className="grid grid-cols-[120px_1fr] gap-2">
-                <dt className="font-medium text-gray-500">Format:</dt>
-                <dd>{dataset.file_type.toUpperCase()}</dd>
+        <Tab key="sample" title="Sample Data">
+          <Card>
+            <CardBody>
+              <DatasetSample 
+                data={sampleData} 
+                fileType={dataset.file_type} 
+                datasetId={dataset.id}
+              />
+            </CardBody>
+          </Card>
+        </Tab>
 
-                <dt className="font-medium text-gray-500">Size:</dt>
-                <dd>{dataset.size ? `${(dataset.size / 1024 / 1024).toFixed(2)} MB` : "Unknown"}</dd>
-
-                <dt className="font-medium text-gray-500">Added:</dt>
-                <dd>{new Date(dataset.created_at).toLocaleDateString()}</dd>
-
-                <dt className="font-medium text-gray-500">Updated:</dt>
-                <dd>{dataset.updated_at ? new Date(dataset.updated_at).toLocaleDateString() : "N/A"}</dd>
-
-                <dt className="font-medium text-gray-500">API Calls:</dt>
-                <dd>{dataset.access_count || 0}</dd>
-              </dl>
-            </div>
-
-            <div>
-              <h2 className="text-2xl font-semibold mb-4">Parameters</h2>
-              <DatasetParameters parameters={dataset.parameters} />
-            </div>
-          </div>
-        </TabsContent>
-
-        <TabsContent value="sample">
-          <DatasetSample data={sampleData} fileType={dataset.file_type} datasetId={dataset.id} />
-        </TabsContent>
-
-        <TabsContent value="api">
-          <DatasetApiDocs
-            datasetId={dataset.id}
-            datasetName={dataset.name}
-            parameters={dataset.parameters}
-            fileType={dataset.file_type}
-          />
-        </TabsContent>
+        <Tab key="api" title="API Documentation">
+          <Card>
+            <CardBody>
+              <DatasetApiDocs
+                datasetId={dataset.id}
+                datasetName={dataset.name}
+                parameters={dataset.parameters}
+                fileType={dataset.file_type}
+              />
+            </CardBody>
+          </Card>
+        </Tab>
       </Tabs>
     </div>
   )
 }
-
