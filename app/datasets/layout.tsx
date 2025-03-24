@@ -4,7 +4,7 @@ import React, { useState } from "react"
 import CategoryFilter from "./components/CategoryFilter"
 import SearchBar from "./components/SearchBar"
 
-export const metadata = {
+const metadata = {
   title: "Datasets | DataSynk",
   description: "Browse and access our open datasets",
 }

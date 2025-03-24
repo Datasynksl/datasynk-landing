@@ -1,35 +1,36 @@
-"use client"
-
-import React from 'react'
-import { Pagination } from "@heroui/react"
+import Link from "next/link"
 
 interface PaginationProps {
   currentPage: number
   totalPages: number
-  onPageChange: (page: number) => void
 }
 
-const DatasetPagination: React.FC<PaginationProps> = ({ 
-  currentPage, 
-  totalPages, 
-  onPageChange 
-}) => {
+export default function Pagination({ currentPage, totalPages }: PaginationProps) {
+  const pages = Array.from({ length: totalPages }, (_, i) => i + 1)
+
   return (
-    <div className="flex flex-col items-center gap-4">
-      <Pagination 
-        color="primary"
-        page={currentPage}
-        total={totalPages}
-        onChange={(page) => onPageChange(page)}
-        showControls
-        isCompact
-        className="mx-auto"
-      />
-      <p className="text-small text-default-500">
-        Page {currentPage} of {totalPages}
-      </p>
+    <div className="flex justify-center gap-2">
+      {currentPage > 1 && (
+        <Link href={`?page=${currentPage - 1}`} className="px-3 py-1 border rounded">
+          Previous
+        </Link>
+      )}
+      {pages.map((page) => (
+        <Link
+          key={page}
+          href={`?page=${page}`}
+          className={`px-3 py-1 border rounded ${
+            page === currentPage ? "bg-gray-200" : ""
+          }`}
+        >
+          {page}
+        </Link>
+      ))}
+      {currentPage < totalPages && (
+        <Link href={`?page=${currentPage + 1}`} className="px-3 py-1 border rounded">
+          Next
+        </Link>
+      )}
     </div>
   )
 }
-
-export default DatasetPagination

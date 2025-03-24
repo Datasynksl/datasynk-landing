@@ -1,3 +1,5 @@
+"use client"
+
 import type { Dataset } from "../../api/data/datasets"
 import { Card, CardHeader, CardBody, CardFooter } from "@heroui/react"
 
