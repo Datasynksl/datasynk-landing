@@ -4,21 +4,18 @@ import { Link } from "@heroui/link";
 import clsx from "clsx";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Providers } from "./providers";
+import { Inter } from "next/font/google";
 
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import { Navbar } from "@/components/navbar";
 import Footer from "@/components/Footer";
 
+const inter = Inter({ subsets: ["latin"] });
+
 export const metadata: Metadata = {
-  title: {
-    default: siteConfig.name,
-    template: `%s - ${siteConfig.name}`,
-  },
-  description: siteConfig.description,
-  icons: {
-    icon: "/favicon.ico",
-  },
+  title: "DataSynk",
+  description: "Share and access open datasets",
 };
 
 export const viewport: Viewport = {
@@ -40,6 +37,7 @@ export default function RootLayout({
         className={clsx(
           "min-h-screen bg-black-100 font-sans antialiased",
           fontSans.variable,
+          inter.className,
         )}
       >
         <ClerkProvider>

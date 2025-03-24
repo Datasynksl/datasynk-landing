@@ -1,66 +1,59 @@
 "use client"
 
-import { useState, useMemo } from "react"
-import { categories, datasets } from "../api/data/datasets"
-import CategoryFilter from "./components/CategoryFilter"
-import SearchBar from "./components/SearchBar"
-import DatasetGrid from "./components/DatasetGrid"
-import Pagination from "./components/Pagination"
+import { createClient } from "@/utils/supabase/server"
+import Link from "next/link"
+import { Button } from "@heroui/react"
+import { Plus } from "lucide-react"
+import { DatasetCard } from "@/components/dataset-card"
 
-const ITEMS_PER_PAGE = 30
-
-export default function Dataset(){
-
-    const [selectedCategory, setSelectedCategory] = useState("All")
-    const [searchQuery, setSearchQuery] = useState("")
-    const [currentPage, setCurrentPage] = useState(1)
-  
-    const filteredDatasets = useMemo(() => {
-      return datasets.filter((dataset) => {
-        const categoryMatch = selectedCategory === "All" || dataset.category === selectedCategory
-        const searchMatch =
-          dataset.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          dataset.description.toLowerCase().includes(searchQuery.toLowerCase())
-        return categoryMatch && searchMatch
-      })
-    }, [selectedCategory, searchQuery])
-  
-    const totalPages = Math.ceil(filteredDatasets.length / ITEMS_PER_PAGE)
-    const paginatedDatasets = filteredDatasets.slice(
-      (currentPage - 1) * ITEMS_PER_PAGE,
-      currentPage * ITEMS_PER_PAGE,
-    )
-
-
-
-    return (
-        <div className="flex h-screen bg-black-100 rounded-lg overflow-hidden">
-        <CategoryFilter
-            categories={categories}
-            selectedCategory={selectedCategory}
-            onSelectCategory={(category) => {
-            setSelectedCategory(category)
-            setCurrentPage(1)
-            }}
-        />
-        <main className="flex-1 flex flex-col overflow-hidden">
-            <div className="p-4 md:p-6 space-y-4">
-            <h1 className="text-2xl font-bold">Datasets</h1>
-            <SearchBar
-                onSearch={(query) => {
-                setSearchQuery(query)
-                setCurrentPage(1)
-                }}
-            />
-            </div>
-            <div className="flex-1 overflow-auto px-4 md:px-6">
-            <DatasetGrid datasets={paginatedDatasets} />
-            </div>
-            <div className="p-4 md:p-6 border-t">
-            <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={setCurrentPage} />
-            </div>
-        </main>
-    </div>
-    )
-
+const metadata = {
+  title: "Datasets | DataSynk",
+  description: "Browse and access our open datasets",
 }
+
+export default async function DatasetsPage() {
+  const supabase = createClient()
+
+  const { data: datasets, error } = await supabase
+    .from("datasets")
+    .select("*")
+    .order("created_at", { ascending: false })
+
+  if (error) {
+    console.error("Error fetching datasets:", error)
+  }
+
+  return (
+    <div className="container mx-auto px-4 py-12">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
+        <div>
+          <h1 className="text-4xl font-bold mb-2">Open Datasets</h1>
+          <p className="text-lg text-gray-600">
+            Browse our collection of open datasets and integrate them into your applications using our RESTful API.
+          </p>
+        </div>
+
+        <Button asChild>
+          <Link href="/datasets/create" className="flex items-center gap-2">
+            <Plus className="h-4 w-4" />
+            Create Dataset
+          </Link>
+        </Button>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {datasets && datasets.length > 0 ? (
+          datasets.map((dataset) => <DatasetCard key={dataset.id} dataset={dataset} />)
+        ) : (
+          <div className="col-span-full text-center py-12">
+            <p className="text-gray-500 mb-4">No datasets available</p>
+            <Button asChild>
+              <Link href="/datasets/create">Create Your First Dataset</Link>
+            </Button>
+          </div>
+        )}
+      </div>
+    </div>
+  )
+}
+
