@@ -29,15 +29,7 @@ export default function DatasetsLayout({
           setSelectedCategory(category)
         }}
       />
-      <main className="flex-1 flex flex-col overflow-hidden">
-        <div className="p-4 md:p-6 space-y-4">
-          <h1 className="text-2xl font-bold">Datasets</h1>
-          <SearchBar
-            onSearch={(query) => {
-              setSearchQuery(query)
-            }}
-          />
-        </div>
+      <main className="flex-1 flex flex-col overflow-auto h-full max-h-auto">
         {/* Pass category and search query to children (page.tsx) */}
         {React.cloneElement(children as React.ReactElement, {
           selectedCategory,
