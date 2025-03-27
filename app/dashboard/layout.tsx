@@ -1,31 +1,52 @@
 "use client"
 
-import type { ReactNode } from "react"
+import type React from "react"
+
 import Sidebar from "./components/sidebar"
-import { useTheme } from "next-themes"
 import { useEffect, useState } from "react"
+import { useRouter } from "next/navigation"
+import { checkUserSession } from "@/lib/services/user"
+import { Loader2 } from "lucide-react"
 
-interface LayoutProps {
-  children: ReactNode
-}
-
-export default function Layout({ children }: LayoutProps) {
-  const { theme } = useTheme()
-  const [mounted, setMounted] = useState(false)
+export default function DashboardLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  const [loading, setLoading] = useState(true)
+  const router = useRouter()
 
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    const checkAuth = async () => {
+      try {
+        const user = await checkUserSession()
+        if (!user) {
+          router.push("/login")
+          return
+        }
+        setLoading(false)
+      } catch (error) {
+        console.error("Error checking auth:", error)
+        router.push("/login")
+      }
+    }
 
-  if (!mounted) {
-    return null
+    checkAuth()
+  }, [router])
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      </div>
+    )
   }
 
   return (
-    <div className={`flex h-screen ${theme === "dark" ? "dark" : ""}`}>
+    <div className="flex min-h-screen bg-gray-100 dark:bg-black-100">
       <Sidebar />
-        <main className="flex-1 overflow-auto p-6 bg-white dark:bg-[#0F0F12]">{children}</main>
-      </div>
+      <main className="flex-1 p-6 lg:p-8 overflow-y-auto">{children}</main>
+    </div>
   )
 }
 
