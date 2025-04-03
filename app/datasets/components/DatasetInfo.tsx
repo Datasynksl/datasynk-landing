@@ -1,81 +1,56 @@
-"use client"
-
-import { ThumbsUp, Share } from "lucide-react"
-import { Button } from "@heroui/react"
+import { Card, CardContent } from "@/components/ui/card"
+import { format } from "date-fns"
 
 interface DatasetInfoProps {
-  dataset: {
-    id: string
-    created_at: string
-    updated_at?: string
-    size?: number
-    file_type: string
-    access_count?: number
-    like_count?: number
-    share_count?: number
-    download_count?: number
-  }
-  onLike: () => void
-  onShare: (method?: string, email?: string | null) => void
+  dataset: any
 }
 
-export function DatasetInfo({ dataset, onLike, onShare }: DatasetInfoProps) {
-  const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-    })
-  }
-
-  const formatFileSize = (bytes?: number) => {
-    if (!bytes) return "Unknown"
-
-    const units = ["B", "KB", "MB", "GB", "TB"]
-    let size = bytes
-    let unitIndex = 0
-
-    while (size >= 1024 && unitIndex < units.length - 1) {
-      size /= 1024
-      unitIndex++
-    }
-
-    return `${size.toFixed(2)} ${units[unitIndex]}`
-  }
-
+export default function DatasetInfo({ dataset }: DatasetInfoProps) {
   return (
-    <div className="space-y-6">
-      <h2 className="text-2xl font-semibold mb-4">Dataset Information</h2>
-
-      <dl className="grid grid-cols-[120px_1fr] gap-2">
-        <dt className="font-medium text-gray-500">Format:</dt>
-        <dd>{dataset.file_type.toUpperCase()}</dd>
-
-        <dt className="font-medium text-gray-500">Size:</dt>
-        <dd>{formatFileSize(dataset.size)}</dd>
-
-        <dt className="font-medium text-gray-500">Added:</dt>
-        <dd>{formatDate(dataset.created_at)}</dd>
-
-        <dt className="font-medium text-gray-500">Updated:</dt>
-        <dd>{dataset.updated_at ? formatDate(dataset.updated_at) : "N/A"}</dd>
-
-        <dt className="font-medium text-gray-500">API Calls:</dt>
-        <dd>{dataset.access_count || 0}</dd>
-      </dl>
-
-      <div className="flex flex-wrap gap-2 pt-4">
-        <Button variant="bordered" size="sm" onClick={onLike} className="flex items-center gap-1">
-          <ThumbsUp className="h-4 w-4" />
-          Like
-        </Button>
-
-        <Button variant="bordered" size="sm" onClick={() => onShare()} className="flex items-center gap-1">
-          <Share className="h-4 w-4" />
-          Share
-        </Button>
-      </div>
+    <div>
+      <h3 className="font-semibold text-lg mb-4">Dataset Information</h3>
+      <Card className="bg-black-200">
+        <CardContent className="pt-6">
+          <dl className="space-y-3">
+            <div className="flex justify-between">
+              <dt className="text-gray-400">File Type</dt>
+              <dd className="font-medium">{dataset.file_type}</dd>
+            </div>
+            <div className="flex justify-between">
+              <dt className="text-gray-400">Size</dt>
+              <dd className="font-medium">{formatBytes(dataset.size)}</dd>
+            </div>
+            <div className="flex justify-between">
+              <dt className="text-gray-400">Created</dt>
+              <dd className="font-medium">{format(new Date(dataset.created_at), "PPP")}</dd>
+            </div>
+            <div className="flex justify-between">
+              <dt className="text-gray-400">Last Updated</dt>
+              <dd className="font-medium">{dataset.updated_at ? format(new Date(dataset.updated_at), "PPP") : "N/A"}</dd>
+            </div>
+            <div className="flex justify-between">
+              <dt className="text-gray-400">Category</dt>
+              <dd className="font-medium">{dataset.category || "Uncategorized"}</dd>
+            </div>
+            <div className="flex justify-between">
+              <dt className="text-gray-400">Sector</dt>
+              <dd className="font-medium">{dataset.sector || "N/A"}</dd>
+            </div>
+            <div className="flex justify-between">
+              <dt className="text-gray-400">Downloads</dt>
+              <dd className="font-medium">{dataset.download_count || 0}</dd>
+            </div>
+          </dl>
+        </CardContent>
+      </Card>
     </div>
   )
 }
 
+function formatBytes(bytes: number): string {
+  if (bytes === 0) return "0 Bytes"
+  const k = 1024
+  const sizes = ["Bytes", "KB", "MB", "GB", "TB"]
+  const i = Math.floor(Math.log(bytes) / Math.log(k))
+  return Number.parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + " " + sizes[i]
+}

@@ -4,11 +4,12 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --font-titillium-web: "Titillium Web", sans-serif;
+}
 
-
-* {
-    /* font-family: "Boldonse", system-ui; */
-    font-weight: 400;
-    font-style: normal;
-  }
+html,
+body {
+  font-family: var(--font-titillium-web);
+}
   

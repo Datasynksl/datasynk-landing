@@ -1,4 +1,4 @@
-import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter } from "@heroui/react"
+import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Snippet } from "@heroui/react"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
 
@@ -8,12 +8,12 @@ interface RequestModalProps {
   datasetId: string
 }
 
-export default function RequestModal({ isOpen, onClose, datasetId }: RequestModalProps) {
+export function RequestModal({ isOpen, onClose, datasetId }: RequestModalProps) {
   const [requestType, setRequestType] = useState<"GET" | "POST">("GET")
   const [codeLanguage, setCodeLanguage] = useState<"python" | "javascript" | "c" | "go">("python")
   
   const requestUrl = `http://localhost:3000/api/datasets/${datasetId}`
-
+Snippet
   const codeSnippets = {
     python: {
       GET: `import requests\n\nurl = "${requestUrl}"\nheaders = {"Authorization": "Bearer <your_token>"}\nresponse = requests.get(url, headers=headers)\nprint(response.json())`,
@@ -109,9 +109,11 @@ export default function RequestModal({ isOpen, onClose, datasetId }: RequestModa
                 ))}
               </div>
               <div className="bg-gray-900 p-4 rounded">
+                <Snippet>
                 <pre className="text-xs whitespace-pre-wrap">
                   {codeSnippets[codeLanguage][requestType]}
                 </pre>
+                </Snippet>
               </div>
             </div>
           </div>

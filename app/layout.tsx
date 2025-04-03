@@ -4,14 +4,10 @@ import { Link } from "@heroui/link";
 import clsx from "clsx";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Providers } from "./providers";
-// import { Inter } from "next/font/google";
-
 import { siteConfig } from "@/config/site";
-import { fontSans } from "@/config/fonts";
+import { titilliumWeb } from "@/config/fonts"; // Updated import
 import { Navbar } from "@/components/navbar";
 import Footer from "@/components/Footer";
-
-// const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "DataSynk",
@@ -35,9 +31,8 @@ export default function RootLayout({
       <head />
       <body
         className={clsx(
-          "min-h-screen bg-black-100 font-sans antialiased",
-          // fontSans.variable,
-          // inter.className,
+          "min-h-screen bg-black-100 antialiased",
+          titilliumWeb.variable // Apply the font variable
         )}
       >
         <ClerkProvider>
@@ -49,7 +44,7 @@ export default function RootLayout({
               </main>
               <Footer />
             </div>
-          </Providers>
+          </Providers>  
         </ClerkProvider>
       </body>
     </html>

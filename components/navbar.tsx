@@ -10,11 +10,21 @@ import {
   NavbarMenuItem,
 } from "@heroui/navbar";
 
-import { Button } from "@heroui/button";
-import { Kbd } from "@heroui/kbd";
-import { Link } from "@heroui/link";
-import { Input } from "@heroui/input";
 import { link as linkStyles } from "@heroui/theme";
+
+import {
+  Input,
+  Link,
+  Button,
+  Kbd,
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  useDisclosure,
+} from "@heroui/react";
+
 import NextLink from "next/link";
 import clsx from "clsx";
 
@@ -32,6 +42,7 @@ import { useEffect, useState } from "react"
 export const Navbar = () => {
   const [user, setUser] = useState<any>(null)
   const [isLoading, setIsLoading] = useState(true)
+  const {isOpen, onOpen, onOpenChange} = useDisclosure();
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -71,6 +82,43 @@ export const Navbar = () => {
 
     return (
       <div className="mx-8 my-4">
+        <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+        <ModalContent>
+          {(onClose) => (
+            <>
+              <ModalHeader className="flex flex-col gap-1">Modal Title</ModalHeader>
+              <ModalBody>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar risus non
+                  risus hendrerit venenatis. Pellentesque sit amet hendrerit risus, sed porttitor
+                  quam.
+                </p>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar risus non
+                  risus hendrerit venenatis. Pellentesque sit amet hendrerit risus, sed porttitor
+                  quam.
+                </p>
+                <p>
+                  Magna exercitation reprehenderit magna aute tempor cupidatat consequat elit dolor
+                  adipisicing. Mollit dolor eiusmod sunt ex incididunt cillum quis. Velit duis sit
+                  officia eiusmod Lorem aliqua enim laboris do dolor eiusmod. Et mollit incididunt
+                  nisi consectetur esse laborum eiusmod pariatur proident Lorem eiusmod et. Culpa
+                  deserunt nostrud ad veniam.
+                </p>
+              </ModalBody>
+              <ModalFooter>
+                <Button color="danger" variant="light" onPress={onClose}>
+                  Close
+                </Button>
+                <Button color="primary" onPress={onClose}>
+                  Action
+                </Button>
+              </ModalFooter>
+            </>
+          )}
+        </ModalContent>
+      </Modal>
+
         {/* <ClerkProvider> */}
           <HeroUINavbar
             maxWidth="xl"
@@ -130,6 +178,7 @@ export const Navbar = () => {
                 href={siteConfig.links.sponsor}
                 startContent={<HeartFilledIcon className="text-danger" />}
                 variant="flat"
+                onPress={onOpen}
               >
                 Sponsor
               </Button>

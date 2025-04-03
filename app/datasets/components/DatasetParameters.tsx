@@ -4,7 +4,7 @@ interface DatasetParametersProps {
   parameters: any
 }
 
-export function DatasetParameters({ parameters }: DatasetParametersProps) {
+export default function DatasetParameters({ parameters }: DatasetParametersProps) {
   if (!parameters) return null
 
   return (
