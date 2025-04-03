@@ -4,14 +4,14 @@ import { Link } from "@heroui/link";
 import clsx from "clsx";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Providers } from "./providers";
-import { Inter } from "next/font/google";
+// import { Inter } from "next/font/google";
 
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import { Navbar } from "@/components/navbar";
 import Footer from "@/components/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
+// const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "DataSynk",
@@ -36,8 +36,8 @@ export default function RootLayout({
       <body
         className={clsx(
           "min-h-screen bg-black-100 font-sans antialiased",
-          fontSans.variable,
-          inter.className,
+          // fontSans.variable,
+          // inter.className,
         )}
       >
         <ClerkProvider>

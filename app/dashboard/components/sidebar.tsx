@@ -39,10 +39,10 @@ export default function UserSidebar() {
       <Link
         href={href}
         onClick={handleNavigation}
-        className={`flex items-center px-3 py-2 text-sm rounded-md transition-colors ${
+        className={`flex items-center px-3 py-2 my-4 text-sm rounded transition-colors  ${
           isActive
-            ? "bg-primary text-primary-foreground"
-            : "text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-[#1F1F23]"
+            ? "bg-slate-400/50 text-black-100"
+            : "text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-200/10"
         }`}
       >
         <Icon className="h-4 w-4 mr-3 flex-shrink-0" />

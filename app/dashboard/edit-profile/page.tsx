@@ -26,7 +26,7 @@ interface UserInfo {
   [key: string]: any
 }
 
-export default function ProfilePage() {
+export default function EditProfilePage() {
   const [user, setUser] = useState<UserInfo | null>(null)
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
@@ -42,9 +42,9 @@ export default function ProfilePage() {
           firstname: userData?.firstname || "",
           lastname: userData?.lastname || "",
           username: userData?.username || "",
-          bio: userData?.bio || "",
-          location: userData?.location || "",
-          website: userData?.website || "",
+          bio: userData.bio || "",
+          location: userData.location || "",
+          website: userData.website || "",
         })
       } catch (error) {
         console.error("Error fetching user data:", error)
@@ -98,34 +98,33 @@ export default function ProfilePage() {
 
   return (
     <div className="max-w-4xl mx-auto">
-      <h1 className="text-2xl font-bold mb-6">Profile</h1>
 
       <Tabs defaultValue="edit">
-        <TabsList className="mb-6">
-          <TabsTrigger value="edit">Edit Profile</TabsTrigger>
-          <TabsTrigger value="view">View Profile</TabsTrigger>
+        <TabsList className="mb-6 border border-gray-200/20 rounded">
+          <TabsTrigger className="bg-gray-200/40 rounded" value="edit">Edit Profile</TabsTrigger>
+          <TabsTrigger className="bg-gray-200/40 rounded" value="view">View Profile</TabsTrigger>
         </TabsList>
 
-        <TabsContent value="edit">
+        <TabsContent value="edit" className="">
           <form onSubmit={handleSubmit}>
-            <Card>
+            <Card className="bg-black-200">
               <CardHeader>
                 <CardTitle>Edit Profile</CardTitle>
                 <CardDescription>Update your personal information</CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
                 <div className="flex flex-col items-center mb-6">
-                  <Avatar className="h-24 w-24 mb-4">
+                  <Avatar className="h-24 w-24 mb-4 bg-slate-500">
                     <AvatarImage src={user.avatar_url || ""} alt={`${user.firstname} ${user.lastname}`} />
                     <AvatarFallback className="text-lg">{getInitials()}</AvatarFallback>
                   </Avatar>
-                  <Button variant="outline" size="sm">
+                  <Button variant="outline" size="sm" className="border-gray-400/50 rounded hover:bg-gray-200/40">
                     Change Avatar
                   </Button>
                 </div>
 
                 {success && (
-                  <Alert className="bg-green-50 border-green-200 text-green-800">
+                  <Alert className="bg-green-500/10 border-green-200/50 text-green-500 rounded">
                     <AlertDescription>Profile updated successfully!</AlertDescription>
                   </Alert>
                 )}
@@ -163,6 +162,7 @@ export default function ProfilePage() {
                     onChange={handleChange}
                     placeholder="Tell us about yourself"
                     rows={4}
+                    className="bg-black-100/50 rounded border-gray-300/30"
                   />
                 </div>
 
@@ -190,7 +190,7 @@ export default function ProfilePage() {
                 </div>
               </CardContent>
               <CardFooter>
-                <Button type="submit" disabled={saving}>
+                <Button type="submit" disabled={saving} className="bg-slate-500/30 hover:bg-slate-500/50 rounded">
                   {saving ? (
                     <>
                       <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -208,40 +208,41 @@ export default function ProfilePage() {
           </form>
         </TabsContent>
 
+{/* preview */}
         <TabsContent value="view">
-          <Card>
+          <Card className="bg-black-200">
             <CardHeader>
               <CardTitle>Profile</CardTitle>
               <CardDescription>Your public profile information</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="flex flex-col items-center mb-6">
-                <Avatar className="h-24 w-24 mb-4">
+                <Avatar className="h-24 w-24 mb-4 bg-slate-600">
                   <AvatarImage src={user.avatar_url || ""} alt={`${user.firstname} ${user.lastname}`} />
                   <AvatarFallback className="text-lg">{getInitials()}</AvatarFallback>
                 </Avatar>
                 <h2 className="text-xl font-semibold">
                   {user.firstname} {user.lastname}
                 </h2>
-                <p className="text-muted-foreground">@{user.username}</p>
+                <p className="text-gray-400/50">@{user.username}</p>
               </div>
 
               <div className="space-y-6">
                 {formData.bio && (
                   <div>
-                    <h3 className="text-sm font-medium text-muted-foreground mb-2">Bio</h3>
+                    <h3 className="text-sm font-medium text-gray-400/50 mb-2">Bio</h3>
                     <p>{formData.bio}</p>
                   </div>
                 )}
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <h3 className="text-sm font-medium text-muted-foreground mb-2">Email</h3>
+                    <h3 className="text-sm font-medium text-gray-400/50 mb-2">Email</h3>
                     <p>{user.email}</p>
                   </div>
                   {formData.location && (
                     <div>
-                      <h3 className="text-sm font-medium text-muted-foreground mb-2">Location</h3>
+                      <h3 className="text-sm font-medium text-gray-400/50 mb-2">Location</h3>
                       <p>{formData.location}</p>
                     </div>
                   )}
@@ -249,7 +250,7 @@ export default function ProfilePage() {
 
                 {formData.website && (
                   <div>
-                    <h3 className="text-sm font-medium text-muted-foreground mb-2">Website</h3>
+                    <h3 className="text-sm font-medium text-gray-400/50 mb-2">Website</h3>
                     <a
                       href={formData.website}
                       target="_blank"
