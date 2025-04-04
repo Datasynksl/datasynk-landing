@@ -100,19 +100,30 @@ export const Navbar = () => {
         <ModalContent>
           {(onClose) => (
             <>
-              <ModalHeader className="flex flex-col gap-1">Modal Title</ModalHeader>
+              <ModalHeader className="flex flex-col gap-1">Donations</ModalHeader>
               <ModalBody>
-              <div className="flex flex-col gap-4 justify-center items-center">
+              <div className="flex flex-col gap-4 justify-center items-center p-8">
                   <div className="flex-1 py-2">
                     <h2 className="text-gray-200">Help us keep the lights & WiFi on</h2>
-                    <p>Scan or Copy my Wallet Address</p>
+                    <p>Scan or Copy to my crypto Wallet Address</p>
                     </div>
                     <div className="flex-1 py-2">
-                      <Image src="images/wallet-address.png" className="w-24 h-24 rounded" />
+                      <Image src="images/wallet-address.png" className="w-60 h-60 rounded" />
                       </div>
                     <div>
-                  <Snippet>2eTKHsS7vN9RxdWgw7kozUSamKtom9ziUCcbNLQMHtHP</Snippet>
+                      <Snippet>2eTKHsS7vN9RxdWgw7kozUSamKtom9ziUCcbNLQMHtHP</Snippet>
+                    </div>
 
+                    <div>
+                      <p className="text-lg text-gray-400">Or Mobile Money</p>
+
+                      <div className="my-4"><span>Orange Money</span>
+                      <Snippet color="warning">075053663</Snippet>
+                    </div>
+
+                    <div className="my-4"><span>AfriMoney</span>
+                      <Snippet  color="warning">090480819</Snippet>
+                    </div>
                     </div>
                   </div>
               </ModalBody>
@@ -120,9 +131,7 @@ export const Navbar = () => {
                 <Button color="danger" variant="light" onPress={onClose}>
                   Close
                 </Button>
-                <Button color="primary" onPress={onClose}>
-                  Action
-                </Button>
+          
               </ModalFooter>
             </>
           )}
@@ -188,7 +197,7 @@ export const Navbar = () => {
                 variant="flat"
                 onPress={onOpen}
               >
-                Sponsor
+                Donate
               </Button>
             </NavbarItem>
 
