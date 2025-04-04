@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import { parse } from 'csv-parse/sync';
 import fs from 'fs/promises';
+import { supabase } from "@/lib/supabase"
 
 interface Dataset {
   id: string
@@ -28,17 +29,10 @@ interface Dataset {
 }
 
 
-// Make sure these environment variables are properly set
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-
 // Check if environment variables are defined
-if (!supabaseUrl || !supabaseKey) {
+if (supabase) {
   console.error('Missing Supabase environment variables');
 }
-
-// Initialize the Supabase client
-const supabase = createClient(supabaseUrl!, supabaseKey!);
 
 export async function POST(
   request: NextRequest,

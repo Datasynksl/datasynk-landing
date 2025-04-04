@@ -23,6 +23,8 @@ import {
   ModalBody,
   ModalFooter,
   useDisclosure,
+  Snippet,
+  Image
 } from "@heroui/react";
 
 import NextLink from "next/link";
@@ -38,11 +40,13 @@ import {
 } from "@/components/icons";
 import { checkUserSession } from "@/lib/services/user"
 import { useEffect, useState } from "react"
+import { Clipboard } from "lucide-react";
 
 export const Navbar = () => {
   const [user, setUser] = useState<any>(null)
   const [isLoading, setIsLoading] = useState(true)
   const {isOpen, onOpen, onOpenChange} = useDisclosure();
+  const [copySuccess, setCopySuccess] = useState("");
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -58,6 +62,16 @@ export const Navbar = () => {
 
     fetchUser()
   }, [])
+
+  // const copyToClipboard = async (text: string) => {
+  //   try {
+  //     await navigator.clipboard.writeText(text);
+  //     setCopySuccess("Copied!");
+  //     setTimeout(() => setCopySuccess(""), 2000); // Clear message after 2 seconds
+  //   } catch (err) {
+  //     console.error("Failed to copy: ", err);
+  //   }
+  // };
 
   const searchInput = (
     <Input
@@ -88,23 +102,19 @@ export const Navbar = () => {
             <>
               <ModalHeader className="flex flex-col gap-1">Modal Title</ModalHeader>
               <ModalBody>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar risus non
-                  risus hendrerit venenatis. Pellentesque sit amet hendrerit risus, sed porttitor
-                  quam.
-                </p>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar risus non
-                  risus hendrerit venenatis. Pellentesque sit amet hendrerit risus, sed porttitor
-                  quam.
-                </p>
-                <p>
-                  Magna exercitation reprehenderit magna aute tempor cupidatat consequat elit dolor
-                  adipisicing. Mollit dolor eiusmod sunt ex incididunt cillum quis. Velit duis sit
-                  officia eiusmod Lorem aliqua enim laboris do dolor eiusmod. Et mollit incididunt
-                  nisi consectetur esse laborum eiusmod pariatur proident Lorem eiusmod et. Culpa
-                  deserunt nostrud ad veniam.
-                </p>
+              <div className="flex flex-col gap-4 justify-center items-center">
+                  <div className="flex-1 py-2">
+                    <h2 className="text-gray-200">Help us keep the lights & WiFi on</h2>
+                    <p>Scan or Copy my Wallet Address</p>
+                    </div>
+                    <div className="flex-1 py-2">
+                      <Image src="images/wallet-address.png" className="w-24 h-24 rounded" />
+                      </div>
+                    <div>
+                  <Snippet>2eTKHsS7vN9RxdWgw7kozUSamKtom9ziUCcbNLQMHtHP</Snippet>
+
+                    </div>
+                  </div>
               </ModalBody>
               <ModalFooter>
                 <Button color="danger" variant="light" onPress={onClose}>
@@ -172,10 +182,8 @@ export const Navbar = () => {
             <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem>
             <NavbarItem className="hidden md:flex">
               <Button
-                isExternal
-                as={Link}
                 className="text-sm font-normal text-white-600 bg-white-200/20"
-                href={siteConfig.links.sponsor}
+                // href={siteConfig.links.sponsor}
                 startContent={<HeartFilledIcon className="text-danger" />}
                 variant="flat"
                 onPress={onOpen}
