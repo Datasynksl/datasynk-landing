@@ -1,37 +1,46 @@
-import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter } from "@heroui/react"
-import { Button } from "@/components/ui/button"
-import { useState } from "react"
+import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter } from "@heroui/react";
+import { Button } from "@/components/ui/button";
+import { useState } from "react";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { dracula } from "react-syntax-highlighter/dist/esm/styles/prism"; // Dark theme
 
 interface RequestModalProps {
-  isOpen: boolean
-  onClose: () => void
-  datasetId: string
+  isOpen: boolean;
+  onClose: () => void;
+  datasetId: string;
 }
 
 export default function RequestModal({ isOpen, onClose, datasetId }: RequestModalProps) {
-  const [requestType, setRequestType] = useState<"GET" | "POST">("GET")
-  const [codeLanguage, setCodeLanguage] = useState<"python" | "javascript" | "c" | "go">("python")
-  
-  const requestUrl = `http://localhost:3000/api/datasets/${datasetId}`
+  const [requestType, setRequestType] = useState<"GET" | "POST">("GET");
+  const [codeLanguage, setCodeLanguage] = useState<"python" | "javascript" | "c" | "go">("python");
+
+  const requestUrl = `http://localhost:3000/api/datasets/${datasetId}`;
 
   const codeSnippets = {
     python: {
       GET: `import requests\n\nurl = "${requestUrl}"\nheaders = {"Authorization": "Bearer <your_token>"}\nresponse = requests.get(url, headers=headers)\nprint(response.json())`,
-      POST: `import requests\n\nurl = "${requestUrl}"\nheaders = {"Authorization": "Bearer <your_token>"}\ndata = {\n    "name": "New Plant",\n    "id": 123,\n    "tag": "type"\n}\nresponse = requests.post(url, headers=headers, json=data)\nprint(response.json())`
+      POST: `import requests\n\nurl = "${requestUrl}"\nheaders = {"Authorization": "Bearer <your_token>"}\ndata = {\n    "name": "New Plant",\n    "id": 123,\n    "tag": "type"\n}\nresponse = requests.post(url, headers=headers, json=data)\nprint(response.json())`,
     },
     javascript: {
       GET: `fetch("${requestUrl}", {\n  headers: {\n    "Authorization": "Bearer <your_token>"\n  }\n})\n  .then(response => response.json())\n  .then(data => console.log(data));`,
-      POST: `fetch("${requestUrl}", {\n  method: "POST",\n  headers: {\n    "Authorization": "Bearer <your_token>",\n    "Content-Type": "application/json"\n  },\n  body: JSON.stringify({\n    name: "New Plant",\n    id: 123,\n    tag: "type"\n  })\n})\n  .then(response => response.json())\n  .then(data => console.log(data));`
+      POST: `fetch("${requestUrl}", {\n  method: "POST",\n  headers: {\n    "Authorization": "Bearer <your_token>",\n    "Content-Type": "application/json"\n  },\n  body: JSON.stringify({\n    name: "New Plant",\n    id: 123,\n    tag: "type"\n  })\n})\n  .then(response => response.json())\n  .then(data => console.log(data));`,
     },
     c: {
       GET: `#include <curl/curl.h>\n\nCURL *curl = curl_easy_init();\nif(curl) {\n  curl_easy_setopt(curl, CURLOPT_URL, "${requestUrl}");\n  curl_easy_setopt(curl, CURLOPT_HTTPHEADER, "Authorization: Bearer <your_token>");\n  CURLcode res = curl_easy_perform(curl);\n  curl_easy_cleanup(curl);\n}`,
-      POST: `#include <curl/curl.h>\n\nCURL *curl = curl_easy_init();\nif(curl) {\n  curl_easy_setopt(curl, CURLOPT_URL, "${requestUrl}");\n  curl_easy_setopt(curl, CURLOPT_POST, 1L);\n  curl_easy_setopt(curl, CURLOPT_HTTPHEADER, "Authorization: Bearer <your_token>");\n  curl_easy_setopt(curl, CURLOPT_POSTFIELDS, "{\\"name\\":\\"New Plant\\",\\"id\\":123,\\"tag\\":\\"type\\"}");\n  CURLcode res = curl_easy_perform(curl);\n  curl_easy_cleanup(curl);\n}`
+      POST: `#include <curl/curl.h>\n\nCURL *curl = curl_easy_init();\nif(curl) {\n  curl_easy_setopt(curl, CURLOPT_URL, "${requestUrl}");\n  curl_easy_setopt(curl, CURLOPT_POST, 1L);\n  curl_easy_setopt(curl, CURLOPT_HTTPHEADER, "Authorization: Bearer <your_token>");\n  curl_easy_setopt(curl, CURLOPT_POSTFIELDS, "{\\"name\\":\\"New Plant\\",\\"id\\":123,\\"tag\\":\\"type\\"}");\n  CURLcode res = curl_easy_perform(curl);\n  curl_easy_cleanup(curl);\n}`,
     },
     go: {
       GET: `package main\n\nimport (\n  "net/http"\n  "io/ioutil"\n)\n\nfunc main() {\n  req, _ := http.NewRequest("GET", "${requestUrl}", nil)\n  req.Header.Set("Authorization", "Bearer <your_token>")\n  client := &http.Client{}\n  resp, _ := client.Do(req)\n  body, _ := ioutil.ReadAll(resp.Body)\n  println(string(body))\n}`,
-      POST: `package main\n\nimport (\n  "net/http"\n  "strings"\n)\n\nfunc main() {\n  jsonData := strings.NewReader(\`{"name":"New Plant","id":123,"tag":"type"}\`)\n  req, _ := http.NewRequest("POST", "${requestUrl}", jsonData)\n  req.Header.Set("Authorization", "Bearer <your_token>")\n  req.Header.Set("Content-Type", "application/json")\n  client := &http.Client{}\n  resp, _ := client.Do(req)\n  body, _ := ioutil.ReadAll(resp.Body)\n  println(string(body))\n}`
-    }
-  }
+      POST: `package main\n\nimport (\n  "net/http"\n  "strings"\n)\n\nfunc main() {\n  jsonData := strings.NewReader(\`{"name":"New Plant","id":123,"tag":"type"}\`)\n  req, _ := http.NewRequest("POST", "${requestUrl}", jsonData)\n  req.Header.Set("Authorization", "Bearer <your_token>")\n  req.Header.Set("Content-Type", "application/json")\n  client := &http.Client{}\n  resp, _ := client.Do(req)\n  body, _ := ioutil.ReadAll(resp.Body)\n  println(string(body))\n}`,
+    },
+  };
+
+  // POST request body for the Usage Guide
+  const postRequestBody = `{
+  "name": "string (required)",
+  "id": "integer (required)",
+  "tag": "string"
+}`;
 
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
@@ -71,25 +80,46 @@ export default function RequestModal({ isOpen, onClose, datasetId }: RequestModa
               <div className="bg-gray-900 p-4 rounded text-sm">
                 {requestType === "GET" ? (
                   <div>
-                    <p><strong>GET /plants</strong></p>
+                    <p>
+                      <strong>GET /plants</strong>
+                    </p>
                     <p>Returns all plants the user has access to</p>
-                    <p className="mt-2"><strong>Authorization:</strong></p>
-                    <p>Bearer authentication header: <code>Bearer &lt;token&gt;</code></p>
+                    <p className="mt-2">
+                      <strong>Authorization:</strong>
+                    </p>
+                    <p>
+                      Bearer authentication header: <code>Bearer &lt;token&gt;</code>
+                    </p>
                   </div>
                 ) : (
                   <div>
-                    <p><strong>POST /plants</strong></p>
+                    <p>
+                      <strong>POST /plants</strong>
+                    </p>
                     <p>Creates a new plant in the store</p>
-                    <p className="mt-2"><strong>Authorization:</strong></p>
-                    <p>Bearer authentication header: <code>Bearer &lt;token&gt;</code></p>
-                    <p className="mt-2"><strong>Body:</strong></p>
-                    <pre className="text-xs">
-                      {`{
-  "name": "string (required)",
-  "id": "integer (required)",
-  "tag": "string"
-}`}
-                    </pre>
+                    <p className="mt-2">
+                      <strong>Authorization:</strong>
+                    </p>
+                    <p>
+                      Bearer authentication header: <code>Bearer &lt;token&gt;</code>
+                    </p>
+                    <p className="mt-2">
+                      <strong>Body:</strong>
+                    </p>
+                    <SyntaxHighlighter
+                      language="json"
+                      style={dracula}
+                      customStyle={{
+                        margin: 0,
+                        padding: 0,
+                        background: "transparent",
+                        fontSize: "0.75rem", // Matches text-xs
+                      }}
+                      wrapLines={true}
+                      lineProps={{ style: { wordBreak: "break-all", whiteSpace: "pre-wrap" } }}
+                    >
+                      {postRequestBody}
+                    </SyntaxHighlighter>
                   </div>
                 )}
               </div>
@@ -109,9 +139,20 @@ export default function RequestModal({ isOpen, onClose, datasetId }: RequestModa
                 ))}
               </div>
               <div className="bg-gray-900 p-4 rounded">
-                <pre className="text-xs whitespace-pre-wrap">
+                <SyntaxHighlighter
+                  language={codeLanguage}
+                  style={dracula}
+                  customStyle={{
+                    margin: 0,
+                    padding: 0,
+                    background: "transparent",
+                    fontSize: "0.75rem", // Matches text-xs
+                  }}
+                  wrapLines={true}
+                  lineProps={{ style: { wordBreak: "break-all", whiteSpace: "pre-wrap" } }}
+                >
                   {codeSnippets[codeLanguage][requestType]}
-                </pre>
+                </SyntaxHighlighter>
               </div>
             </div>
           </div>
@@ -123,5 +164,5 @@ export default function RequestModal({ isOpen, onClose, datasetId }: RequestModa
         </ModalFooter>
       </ModalContent>
     </Modal>
-  )
+  );
 }
